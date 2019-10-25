@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewData["Title1"] = "Property";
+}
+
+
+<html>
+<body>
+
+    <form action="SetProperty" method="post">
+        <p>
+            <textarea name="Title" cols="150" rows="1">"@Property.propertyD["Tytul"]"</textarea>
+        </p>
+
+        <div>
+            <textarea name="Content" cols="150" rows="20">"@Property.propertyD["Opis"]"</textarea>
+        </div>
+
+        <div>
+            <table border="1">
+
+                <tr>
+                    <td width="150">Adres</td>
+                    <td>
+                        <input name="Address" type="text" value="@Property.propertyD["Adres"]" width="700" height="50" />
+                    </td>
+                    <td width="150">Cena</td>
+                    <td>
+                        <input name="Prize" type="text" value="@Property.propertyD["Cena"]" width="400" height="50" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Powierzchnia</td>
+                    <td>
+                        <input name="Area" type="text" value="@Property.propertyD["Powierzchnia"]" width="700" height="50" />
+                    </td>
+                    <td>Poziom</td>
+                    <td>
+                        @if (Property.propertyD.ContainsKey("Poziom"))
+                        {
+                        <input name="Floor" type="text" value="@Property.propertyD["Poziom"]" width="400" height="50" />
+                        }
+                        else
+                        {
+                        <input name="Floor" type="text" value="@Property.propertyD["Liczba pięter"]" width="400" height="50" />
+                        }
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Pokoje</td>
+                    <td>
+                        <input name="Rooms" type="text" value="@Property.propertyD["Liczba pokoi"]" width="700" height="50" />
+                    </td>
+                    <td>Czynsz</td>
+                    <td>
+                        @if (Property.propertyD.ContainsKey("Czynsz(dodatkowo)"))
+                        {
+                            <input name="Fee" type="text" value="@Property.propertyD["Czynsz(dodatkowo)"]" width="400" height="50" />
+                        }
+                        else
+                        {
+                            <input name="Fee" type="text" value="-" width="400" height="50" />
+                        }
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Umeblowane</td>
+                    <td>
+                        @if (Property.propertyD.ContainsKey("Umeblowane"))
+                        {
+                            <input name="Furnitured" type="text" value="@Property.propertyD["Umeblowane"]" width="400" height="50" />
+                        }
+                        else
+                        {
+                            <input name="Furnitured" type="text" value="-" width="400" height="50" />
+
+                        }
+                    </td>
+                    <td>Rodzaj zabudowy</td>
+                    <td>
+                        <input name="Development" type="text" value="@Property.propertyD["Rodzaj zabudowy"]" width="400" height="50" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Parking</td>
+                    <td>
+                        <input name="Parking" type="text" value="" width="400" height="50" />
+                    </td>
+                    <td>Liczba łazienek</td>
+                    <td>
+                        <input name="Bathrooms" type="text" value="" width="400" height="50" />
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <hr />
+
+
+
+        <input type="submit" value="send" />
+    </form>
+
+
+
+
+
+</body>
+</html>
